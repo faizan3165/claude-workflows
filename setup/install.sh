@@ -88,13 +88,14 @@ skill_link security-audit cloudflare/security-audit-skill skills/security-audit
 
 if [ "$GRAPHIFY" = 1 ]; then
   echo "== graphify"
-  if ! has graphify; then
-    if has uv; then run uv tool install graphifyy
-    elif has pipx; then run pipx install graphifyy
-    else echo "! graphify skipped: install uv (https://docs.astral.sh/uv/) or pipx, then re-run"; fi
-  fi
+  if has uv && uv tool list 2>/dev/null | grep -q '^graphifyy '; then run uv tool upgrade graphifyy
+  elif has pipx && pipx list --short 2>/dev/null | grep -q '^graphifyy '; then run pipx upgrade graphifyy
+  elif has graphify; then echo "= graphify found (not managed by uv or pipx); left as is"
+  elif has uv; then run uv tool install graphifyy
+  elif has pipx; then run pipx install graphifyy
+  else echo "! graphify skipped: install uv (https://docs.astral.sh/uv/) or pipx, then re-run"; fi
   if has graphify; then
-    run graphify install
+    run graphify install --platform claude
     if [ "$CONFIG_DIR" != "$HOME/.claude" ] && [ ! -e "$CONFIG_DIR/skills/graphify" ]; then
       run ln -sfn "$HOME/.claude/skills/graphify" "$CONFIG_DIR/skills/graphify"
     fi

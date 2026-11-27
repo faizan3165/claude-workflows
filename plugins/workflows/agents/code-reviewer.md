@@ -9,7 +9,7 @@ You review the diff against the base branch you were given (`git diff <base>...H
 ## Process
 
 1. Read the whole diff, then the surrounding code of each change.
-2. For every changed function, type or endpoint, grep its callers and check they still work.
+2. For every changed function, type or endpoint, grep its callers and check they still work. If `graphify-out/graph.json` exists, `graphify affected "<symbol>"` lists what else depends on it.
 3. Verify each finding against the code before reporting it. No speculative findings.
 
 ## Checklist
