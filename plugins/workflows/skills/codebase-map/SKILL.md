@@ -34,6 +34,7 @@ If the CLI is missing: `uv tool install graphifyy` (or `pipx install graphifyy`)
    - Whole repo: `/graphify .`
    - Large monorepo: graph the part you need, e.g. `/graphify ./services/api`
    - No HTML needed: `/graphify . --no-viz`
+   - Code only, no model calls at all: `graphify update .` (builds the AST graph and report; add docs later with `/graphify . --update`)
 
 ## 3. Use the graph (before reading files)
 
@@ -55,10 +56,11 @@ If the CLI is missing: `uv tool install graphifyy` (or `pipx install graphifyy`)
 These change repo state, so they are opt-in per project. Ask first:
 - `graphify hook install` adds git hooks (post-commit, post-checkout, post-merge, post-rewrite) that rebuild code nodes.
 - `graphify claude install` writes a graphify section into the project's `CLAUDE.md` (or the `AGENTS.md` Claude Code reads) and a PreToolUse hook. Both are usually tracked files, so it's a team decision.
-- For Cursor: `graphify cursor install` writes `.cursor/rules/graphify.mdc`.
+- For Cursor: `graphify cursor install` writes `.cursor/rules/graphify.mdc` into the current folder, as an always-on rule.
 
 ## Known traps
 
 - Use `graphify --help` for help. Older versions ran a real install on `graphify install --help`.
 - `graphify uninstall --purge` also deletes `graphify-out/`.
+- Run `graphify cursor install` and `graphify install --platform cursor` only inside a project. From the home folder they write `~/.cursor/rules/graphify.mdc`: a global always-on rule that forces graphify before every read or search, even in repos with no graph.
 - Never run the HTML view on a graph over 5,000 nodes without warning the user (`--no-viz` skips it).
