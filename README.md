@@ -66,7 +66,7 @@ Restart Claude Code afterwards. Re-run the same two commands to update.
 ## What the installer changes
 
 - Plugins at user scope (`claude plugin marketplace add` / `install`).
-- Symlinks in `~/.claude/skills` (or `$CLAUDE_CONFIG_DIR/skills`) pointing to shallow clones in `~/.cache/claude-workflows`.
+- Symlinks in `~/.claude/skills` (or `$CLAUDE_CONFIG_DIR/skills`) pointing to shallow clones in `~/.cache/claude-workflows-skills`.
 - One marked block in `CLAUDE.md`, backed up before any change. Re-runs replace only that block.
 - The graphify CLI via `uv` or `pipx`.
 

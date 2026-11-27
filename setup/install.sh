@@ -4,14 +4,14 @@
 #
 # What it touches:
 #   - Claude Code plugins (user scope) via `claude plugin marketplace add` / `claude plugin install`
-#   - Skill links in $CLAUDE_CONFIG_DIR/skills (default ~/.claude/skills), cloned into ~/.cache/claude-workflows
+#   - Skill links in $CLAUDE_CONFIG_DIR/skills (default ~/.claude/skills), cloned into ~/.cache/claude-workflows-skills
 #   - One marked block in $CLAUDE_CONFIG_DIR/CLAUDE.md (backed up before any change)
 #   - graphify CLI via uv or pipx; `graphify install` adds its skill and a short section to ~/.claude/CLAUDE.md (skip with --no-graphify)
 # It never changes permissions, hooks or other settings.
 set -euo pipefail
 
 CONFIG_DIR=${CLAUDE_CONFIG_DIR:-$HOME/.claude}
-CACHE_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/claude-workflows
+CACHE_DIR=${XDG_CACHE_HOME:-$HOME/.cache}/claude-workflows-skills
 SOURCE=${CLAUDE_WORKFLOWS_SOURCE:-faizan3165/claude-workflows}
 BLOCK="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/claude-md-block.md"
 WITH="" GRAPHIFY=1 DRY_RUN=0

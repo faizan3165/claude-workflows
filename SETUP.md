@@ -9,7 +9,7 @@ claude --version && git --version
 command -v uv || command -v pipx || echo "no uv/pipx: graphify will be skipped"
 ```
 
-## 2. Get the repo (or update it)
+## 2. Get the repo (or update it). Use this exact path.
 
 ```bash
 dir=${XDG_CACHE_HOME:-$HOME/.cache}/claude-workflows/repo
