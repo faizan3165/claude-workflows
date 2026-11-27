@@ -1,0 +1,16 @@
+{
+  "name": "claude-workflows",
+  "owner": {
+    "name": "faizan3165"
+  },
+  "metadata": {
+    "description": "Plain-prompt workflows for Claude Code: routing, a stack-agnostic pre-PR gate, design orchestration, codebase maps and Next.js conventions."
+  },
+  "plugins": [
+    {
+      "name": "workflows",
+      "source": "./plugins/workflows",
+      "description": "Routes plain requests to skill chains, runs a full pre-PR gate for any stack, orchestrates design skills, maps codebases with graphify, and carries Next.js App Router conventions."
+    }
+  ]
+}

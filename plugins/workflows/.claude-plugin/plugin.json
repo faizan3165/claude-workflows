@@ -1,0 +1,17 @@
+{
+  "name": "workflows",
+  "description": "Plain-prompt workflows: router, pre-PR gate for any stack, design orchestration, graphify codebase maps, Next.js App Router conventions, and review agents.",
+  "author": {
+    "name": "faizan3165"
+  },
+  "repository": "https://github.com/faizan3165/claude-workflows",
+  "license": "MIT",
+  "keywords": [
+    "workflows",
+    "pre-pr",
+    "code-review",
+    "design",
+    "graphify",
+    "nextjs"
+  ]
+}
